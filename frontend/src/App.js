@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Routes from './routes';
+import RoutesOlympus from './routes';
 
 function App() {
   return (
-    <Routes />
+    <RoutesOlympus />
   );
 }
 

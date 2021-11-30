@@ -1,18 +1,20 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import {  BrowserRouter, Router, Route, Routes  } from 'react-router-dom';
 
-import Home from './Home';
+
+
+import Home from './Home/index';
 import Login from './Login';
 
-const Routes = () => {
+const RoutesOlympus = () => {
     return(
         <BrowserRouter>
-            <Switch>
-                <Route exact path="/" component={Login} />
-                <Route exact path="/"home component={Home} />
-            </Switch>
+             <Routes>
+                <Route exact path="/login" element={<Login/>}/>
+                <Route exact path="/" element={<Home/>} /> 
+            </Routes>
         </BrowserRouter>
     );
 }
 
-export default Routes;
+export default RoutesOlympus;

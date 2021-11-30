@@ -1,0 +1,21 @@
+#home-page{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr;
+}
+
+#home-page nav{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#home-page section{
+    padding-right: 70px;
+}
+
+#home-page  section h1{
+    text-align: right;
+    align-self: center;
+    color: #5C8599;
+}
