@@ -10,12 +10,49 @@
     grid-column-end: 3;
 }
 
+#home-page img{
+    align-self: center;
+    justify-self: center;
+    margin: 10%;
+    width: 60%;
+}
+
 #home-page section{
     padding-right: 70px;
+    align-self: center;
 }
 
 #home-page  section h1{
     text-align: right;
+    font-weight: normal;
+    color: #004453;
+
+}
+
+#home-page  section .big-box{
+    height: 50px;
+    width: 73%;
+    justify-self: center;
+    background: #168097;
+    border-radius: 10px;
+}
+
+#home-page  section .medium-box{
+    height: 100%;
+    width: 90%;
+    background: #3BA4BB;
+    border-radius: 10px;
+}
+
+#home-page  section .small-box{
+    height: 100%;
+    width: 88%;
+    background: #6FC8DC;
+    border-radius: 10px;
+    display: grid;
+}
+
+#home-page  section .small-box p{
     align-self: center;
-    color: #5C8599;
+    color: azure;
 }

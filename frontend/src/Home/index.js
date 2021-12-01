@@ -11,6 +11,15 @@ function Home() {
             <img src={Judo}/>
            <section>
                <h1>Quadro de Medalhas</h1>
+                <div class="big-box">
+                    <div class="medium-box">
+                        <div class="small-box">
+                            <div class="text-box">
+                                <p>Brasil</p>
+                            </div>
+                        </div>
+                    </div>
+               </div>
            </section>
         </main>
     );
