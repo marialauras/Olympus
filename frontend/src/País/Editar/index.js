@@ -1,11 +1,19 @@
 import React, { useState, useHistory } from 'react';
+import Select from 'react-select'
 import './style.css';
 
 function Edit() {
     const [ nome, setNome ] = useState('');
     const [ abreviacao, setAbreviacao ] = useState('');
     const [ nomeOficial, setNomeOficial ] = useState('');
-    const [ continente, setContinente ] = useState('');
+
+    const choices = [
+        { label: 'Europa' },
+        { label: 'Ásia'},
+        { label: 'África'},
+        { label: 'América'},
+        { label: 'Oceania'},
+    ];
 
     function handleNome(e) {
         e.preventDefault();
@@ -21,12 +29,6 @@ function Edit() {
         e.preventDefault();
         setNomeOficial(e.target.value);
     }
-
-    function handleContinente(e) {
-        e.preventDefault();
-        setContinente(e.target.value);
-    }
-
 
     function handleSubmit(e) {}
 
@@ -74,15 +76,7 @@ function Edit() {
                         </div>
                         <div className="input-block">
                             <label htmlFor="continente">Continente</label>
-                            <input 
-                                id="continente"
-                                type="continente"
-                                placeholder="..."
-                                value={continente}
-                                onChange={handleContinente}
-                                required={true}
-                                className={''}
-                            />
+                            <Select className="continente" options={choices} />
                         </div>
                         
                     </fieldset>
