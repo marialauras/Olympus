@@ -2,7 +2,7 @@
     display: grid;
     width: 100vw;
     height: 100vh;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 55vw 45vw;
 }
 
 #home-page nav{
@@ -26,6 +26,7 @@
     text-align: right;
     font-weight: normal;
     color: #004453;
+    margin-bottom: 30px;
 
 }
 
@@ -35,6 +36,7 @@
     justify-self: center;
     background: #168097;
     border-radius: 10px;
+    margin-bottom: 30px;
 }
 
 #home-page  section .medium-box{
@@ -50,9 +52,10 @@
     background: #6FC8DC;
     border-radius: 10px;
     display: grid;
+    justify-items: center;
+    align-items: center;
 }
 
 #home-page  section .small-box p{
-    align-self: center;
     color: azure;
 }

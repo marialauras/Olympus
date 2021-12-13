@@ -20,6 +20,26 @@ function Home() {
                         </div>
                     </div>
                </div>
+
+               <div class="big-box">
+                    <div class="medium-box">
+                        <div class="small-box">
+                            <div class="text-box">
+                                <p>EUA</p>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+
+               <div class="big-box">
+                    <div class="medium-box">
+                        <div class="small-box">
+                            <div class="text-box">
+                                <p>Colombia</p>
+                            </div>
+                        </div>
+                    </div>
+               </div>
            </section>
         </main>
     );
