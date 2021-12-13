@@ -76,7 +76,7 @@ CREATE TABLE Modalidade (
 );
 
 CREATE TABLE Prova (
-    Código     	        NUMERIC(6)     NOT NULL,
+    Codigo     	        NUMERIC(6)     NOT NULL,
     CodModalidade       NUMERIC(6)     NOT NULL,
     Descrição     	    VARCHAR(600)   NULL,
     DataDia    		    NUMERIC(2)     NOT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE Continente (
     Cor                 VARCHAR(30)    NOT NULL,
     QuantidadePaises    NUMERIC(2)     NULL,
     CONSTRAINT pk_continente PRIMARY KEY (Cor),
-    CONSTRAINT ck_sexo_dep CHECK (Cor= "Azul" or Cor= "Vermelho" or Cor= "Verde" or Cor= "Amarelo" or Cor= "Preto")
+    CONSTRAINT ck_cor_continente CHECK (Cor= 'Azul' or Cor= 'Vermelho' or Cor= 'Verde' or Cor= 'Amarelo' or Cor= 'Preto')
 );
 
 
@@ -115,20 +115,20 @@ CREATE TABLE Embaixadores (
 CREATE TABLE ProvasAtletas (
     CodProva    	     NUMERIC(4)     NOT NULL,
     CpfAtleta            VARCHAR(14)    NOT NULL,
-    CONSTRAINT pk_provas_atletas    PRIMARY KEY (CodProva,CpfAtleta)
+    CONSTRAINT pk_provas_atletas    PRIMARY KEY (CodProva, CpfAtleta)
 );
 
 CREATE TABLE EquipesAtletas (
     AbrevEquipe    	     VARCHAR(3)     NOT NULL,
     CpfAtleta            VARCHAR(14)    NOT NULL,
-    CONSTRAINT pk_equipe_atletas    PRIMARY KEY (AbrevEquipe,CpfAtleta)
+    CONSTRAINT pk_equipe_atletas    PRIMARY KEY (AbrevEquipe, CpfAtleta)
 );
 
 CREATE TABLE PodioMedalhistas (
     Posicao    	     NUMERIC(4)     NOT NULL,
     CodMedalhista    NUMERIC(6,1)   NOT NULL,
     CodProva	     NUMERIC(4)     NOT NULL,
-    CONSTRAINT pk_podio_medalhistas    PRIMARY KEY (CodMedalhista ,CpfAtleta)
+    CONSTRAINT pk_podio_medalhistas    PRIMARY KEY (CodMedalhista, CodProva)
 );
 
 CREATE TABLE ProvasEquipes (
@@ -145,8 +145,6 @@ CREATE TABLE OlimpiadaPais(
     CONSTRAINT pk_pais_olimpiada    PRIMARY KEY (AnoOlimpiada,AbreviacaoPais)
 );
 
-INSERT INTO Pais
-VALUES ('EUA', 'América', 'Estados Unidos da América', 'Estados Unidos');
 INSERT INTO Pais
 VALUES ('EUA', 'América', 'Estados Unidos da América', 'Estados Unidos');
 INSERT INTO Pais
