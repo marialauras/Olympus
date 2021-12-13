@@ -76,7 +76,7 @@ CREATE TABLE Modalidade (
 );
 
 CREATE TABLE Prova (
-    Código     	        NUMERIC(6)     NOT NULL,
+    Codigo     	        NUMERIC(6)     NOT NULL,
     CodModalidade       NUMERIC(6)     NOT NULL,
     Descrição     	    VARCHAR(600)   NULL,
     DataDia    		    NUMERIC(2)     NOT NULL,
