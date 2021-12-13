@@ -145,41 +145,47 @@ CREATE TABLE OlimpiadaPais(
     CONSTRAINT pk_pais_olimpiada    PRIMARY KEY (AnoOlimpiada,AbreviacaoPais)
 );
 
+/* azul: Europa, 
+amarelo: Ásia, 
+preto: África, 
+verde: Oceania e 
+vermelho: as Américas. */
+
 INSERT INTO Pais
-VALUES ('EUA', 'América', 'Estados Unidos da América', 'Estados Unidos');
+VALUES ('EUA', 'Vermelho', 'Estados Unidos da América', 'Estados Unidos');
 INSERT INTO Pais
-VALUES ('RUS', 'Europa', 'Federação Russa', 'Rússia');
+VALUES ('RUS', 'Azul', 'Federação Russa', 'Rússia');
 INSERT INTO Pais
-VALUES ('ALE', 'Europa', 'República Federal da Alemanha', 'Alemanha');
+VALUES ('ALE', 'Azul', 'República Federal da Alemanha', 'Alemanha');
 INSERT INTO Pais
-VALUES ('GBR', 'Europa', 'Reino Unido da Grã-Bretanha', 'Grã-Bretanha');
+VALUES ('GBR', 'Azul', 'Reino Unido da Grã-Bretanha', 'Grã-Bretanha');
 INSERT INTO Pais
-VALUES ('CHI', 'Ásia', 'República Popular da China', 'China');
+VALUES ('CHI', 'Amarelo', 'República Popular da China', 'China');
 INSERT INTO Pais
-VALUES ('FRA', 'Europa', 'República Francesa', 'França');
+VALUES ('FRA', 'Azul', 'República Francesa', 'França');
 INSERT INTO Pais
-VALUES ('ITA', 'Europa', 'República Italiana', 'Itália');
+VALUES ('ITA', 'Azul', 'República Italiana', 'Itália');
 INSERT INTO Pais
-VALUES ('SWE', 'Europa', 'Reino da Suécia', 'Suécia');
+VALUES ('SWE', 'Azul', 'Reino da Suécia', 'Suécia');
 INSERT INTO Pais
-VALUES ('NOR', 'Europa', 'Reino da Noruega', 'Noruega');
+VALUES ('NOR', 'Azul', 'Reino da Noruega', 'Noruega');
 INSERT INTO Pais
-VALUES ('JPN', 'Ásia', 'Japão', 'Japão');
+VALUES ('JPN', 'Amarelo', 'Japão', 'Japão');
 INSERT INTO Pais
-VALUES ('AUS', 'Oceania', 'Comunidade da Austrália', 'Austrália');
+VALUES ('AUS', 'Verde', 'Comunidade da Austrália', 'Austrália');
 INSERT INTO Pais
-VALUES ('CAN', 'América', 'Canadá', 'Canadá');
+VALUES ('CAN', 'Vermelho', 'Canadá', 'Canadá');
 INSERT INTO Pais
-VALUES ('KEN', 'África', 'República do Quênia', 'Quênia');
+VALUES ('KEN', 'Preto', 'República do Quênia', 'Quênia');
 INSERT INTO Pais
-VALUES ('GRE', 'Europa', 'República Helénica', 'Grécia');
+VALUES ('GRE', 'Azul', 'República Helénica', 'Grécia');
 INSERT INTO Pais
-VALUES ('RSA', 'África', 'República da África do Sul', 'África do Sul');
+VALUES ('RSA', 'Preto', 'República da África do Sul', 'África do Sul');
 INSERT INTO Pais
-VALUES ('NZL', 'Oceania', 'Nova Zelândia', 'Nova Zelândia');
+VALUES ('NZL', 'Verde', 'Nova Zelândia', 'Nova Zelândia');
 INSERT INTO Pais
-VALUES ('KOR', 'Ásia', 'República da Coreia', 'Coréia do Sul');
+VALUES ('KOR', 'Amarelo', 'República da Coreia', 'Coréia do Sul');
 INSERT INTO Pais
-VALUES ('ARG', 'América', 'República Argentina', 'Argentina');
+VALUES ('ARG', 'Vermelho', 'República Argentina', 'Argentina');
 INSERT INTO Pais
-VALUES ('NED', 'Europa', 'Reino dos Países Baixos', 'Países Baixos');
+VALUES ('NED', 'Azul', 'Reino dos Países Baixos', 'Países Baixos');
