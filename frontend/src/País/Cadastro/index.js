@@ -1,4 +1,4 @@
-import React, { useState, useHistory } from 'react';
+/* import React, { useState, useHistory } from 'react';
 import Select from 'react-select'
 import api from '../../../services/api';
 import './style.css';
@@ -8,7 +8,7 @@ function Register() {
     const [ abreviacao, setAbreviacao ] = useState('');
     const [ nomeOficial, setNomeOficial ] = useState('');
 
-    const choices = [
+    const continente = [
         { label: 'Europa' },
         { label: 'Ásia'},
         { label: 'África'},
@@ -94,7 +94,7 @@ function Register() {
                         </div>
                         <div className="input-block">
                             <label htmlFor="continente">Continente</label>
-                            <Select className="continente" options={choices} />
+                            <Select className="continente" options={continente} />
                             
                         </div>
                         
@@ -109,4 +109,4 @@ function Register() {
     );
 }
 
-export default Register;
+export default Register; */

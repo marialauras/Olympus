@@ -1,6 +1,6 @@
-import React, { useState, useHistory } from 'react';
+/* import React, { useState, useHistory } from 'react';
 import Select from 'react-select'
-import api from '../../../services/api';
+//import api from '../../../services/api';
 import './style.css';
 
 function Edit() {
@@ -8,7 +8,7 @@ function Edit() {
     const [ abreviacao, setAbreviacao ] = useState('');
     const [ nomeOficial, setNomeOficial ] = useState('');
 
-    const choices = [
+    const continente = [
         { label: 'Europa' },
         { label: 'Ásia'},
         { label: 'África'},
@@ -31,18 +31,18 @@ function Edit() {
         setNomeOficial(e.target.value);
     }
 
-    async function carregaPais() {
+    /*async function carregaPais() {
         api.get(`/${abreviacao}`)
         .then(response => {
             setNome(response.data[0].nome);
             setNomeOficial(response.data[0].nomeOficial);
         })
         .catch(err => alert('Erro ao listar pais. Tente novamente.'))
-    }
+    } */
 
-    useEffect(() => {
+    /*useEffect(() => {
         carregaPais();
-    }, [])
+    }, []) 
 
     async function handleSubmit(e) {
         try {
@@ -107,7 +107,7 @@ function Edit() {
                         </div>
                         <div className="input-block">
                             <label htmlFor="continente">Continente</label>
-                            <Select className="continente" options={choices} />
+                            <Select className="continente" options={continente} />
                         </div>
                         
                     </fieldset>
@@ -121,4 +121,4 @@ function Edit() {
     );
 }
 
-export default Edit;
+export default Edit; */
