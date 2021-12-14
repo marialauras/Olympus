@@ -97,7 +97,7 @@ CREATE TABLE Pais (
 );
 
 CREATE TABLE Continente (
-    Nome     	        NUMERIC(4)     NULL,
+    Nome     	        VARCHAR(20)     NULL,
     Cor                 VARCHAR(30)    NOT NULL,
     QuantidadePaises    NUMERIC(2)     NULL,
     CONSTRAINT pk_continente PRIMARY KEY (Cor),
@@ -106,6 +106,7 @@ CREATE TABLE Continente (
 
 
 CREATE TABLE Embaixadores (
+	Ano                      NUMERIC(4)      NOT NULL,
     CpfEmbaixador     	     VARCHAR(14)     NOT NULL,
     CodTocha                 NUMERIC(4)      NOT NULL,
     CONSTRAINT pk_embaixadores    PRIMARY KEY (CpfEmbaixador, CodTocha)
@@ -246,7 +247,10 @@ ALTER TABLE Embaixadores
 ADD CONSTRAINT fk_embaixador_pessoa FOREIGN KEY (CpfEmbaixador) REFERENCES Pessoa (CPF);
 
 ALTER TABLE Embaixadores
-ADD CONSTRAINT fk_embaixador_tocha FOREIGN KEY (CodTocha) REFERENCES Tocha (Codigo);
+ADD CONSTRAINT fk_ano FOREIGN KEY (Ano) REFERENCES Olimpiada (Ano);
+
+ALTER TABLE Embaixadores
+ADD CONSTRAINT fk_embaixador_tocha FOREIGN KEY (CodTocha, Ano) REFERENCES Tocha (Codigo, Ano);
 
 ALTER TABLE ProvasAtletas
 ADD CONSTRAINT fk_prova_codigo FOREIGN KEY (CodProva) REFERENCES Prova (Codigo);
