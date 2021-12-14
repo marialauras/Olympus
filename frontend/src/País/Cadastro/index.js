@@ -1,6 +1,6 @@
 import React, { useState, useHistory } from 'react';
 import Select from 'react-select'
-import Pais from '../../../models/pais.model';
+import api from '../../../services/api';
 import './style.css';
 
 function Register() {
@@ -32,11 +32,22 @@ function Register() {
     }
 
     function handleSubmit(e) {
-        Pais.create(e).then((result) => {
-            
-        }).catch((err) => {
-            
-        });
+        try {
+            const data = new FormData();
+            data.append("nome", nome);
+            data.append("nomeoficial", nomeOficial);
+            data.append("abreviacao", abreviacao);
+            data.append("continente", continente);
+
+            await api.post('/pais', data);
+
+            setNome('');
+            setAbreviacao('');
+            setNomeOficial('');
+            alert('Pais criado com sucesso!');
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (

@@ -30,7 +30,24 @@ function Edit() {
         setNomeOficial(e.target.value);
     }
 
-    function handleSubmit(e) {}
+    function handleSubmit(e) {
+        try {
+            const data = new FormData();
+            data.append("nome", nome);
+            data.append("nomeoficial", nomeOficial);
+            data.append("abreviacao", abreviacao);
+            data.append("continente", continente);
+
+            await api.put('/pais', data);
+
+            setNome('');
+            setAbreviacao('');
+            setNomeOficial('');
+            alert('Pais criado com sucesso!');
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <div id="edit-page">
