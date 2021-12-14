@@ -13,4 +13,6 @@ routes.get('/like', controller.like);
 routes.get('/add', controller.add);
 routes.get('/delete', controller.delete);
 
+routes.delete('/del/:id', controller.del);
+
 module.exports = routes;

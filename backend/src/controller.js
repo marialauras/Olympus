@@ -36,5 +36,15 @@ module.exports = {
         const response = await db.query("delete from Pais where nomecomum like '%Brasil%' ");
         console.log(response);
         res.status(200).send(response);
+    },
+
+    async del (req, res) {
+
+        const { id } = req.params;
+
+        const response = await db.query(`delete from Pais where nomecomum like '%${id}%' `);
+        console.log(response);
+        res.status(200).send(response);
+
     }
 }

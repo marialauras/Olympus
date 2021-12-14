@@ -1,12 +1,7 @@
 const { Pool } = require('pg');
+const V = require('./variables');
 
-const db_username = "postgres";
-const db_password = "rafael12";
-const host = "localhost";
-const port = 5432;
-const db_name = "porra";
-
-const DATABASE_URL = `postgres://${db_username}:${db_password}@${host}:${port}/${db_name}`;
+const DATABASE_URL = `postgres://${V.db_username}:${V.db_password}@${V.host}:${V.port}/${V.db_name}`;
 
 // ==> Conexão com a Base de Dados:
 const pool = new Pool({

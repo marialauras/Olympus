@@ -1,17 +1,29 @@
-import React, { useState, useEffect, useHistory } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import './style.css';
 import api from '../services/api';
 
-//import Judo from '../assets/images/judo.png'
-
 function Home() {
-    const [pais, setPais] = useState([]);
+    const [ pais, setPais ] = useState([]);
+    const [ email, setEmail ] = useState('');
+
+    function handleEmail(e) {
+        e.preventDefault();
+        setEmail(e.target.value);
+    }
+
+    function handleSubmit(e) {
+        api.delete(`/del/${email}`)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(err => console.log(err));
+    }
 
     function loadAllCountries(){
         api.get('/pais')
         .then(response => {
-            console.log(response.data);
+            console.log(response);
             setPais(response.data);
         })
         .catch(err => console.log(err))
@@ -20,7 +32,7 @@ function Home() {
     function loadByContinent(){
         api.get('/join')
         .then(response => {
-            console.log(response.data);
+            console.log(response);
             setPais(response.data);
         })
         .catch(err => console.log(err))
@@ -29,7 +41,7 @@ function Home() {
     function loadRepublics(){
         api.get('/like')
         .then(response => {
-            console.log(response.data);
+            console.log(response);
             setPais(response.data);
         })
         .catch(err => console.log(err))
@@ -53,20 +65,13 @@ function Home() {
 
     useEffect(() => {
         loadAllCountries();
-    }, [pais]);
+    }, []);
 
     return (
         <main id="home-page">
             <Navbar/>
             <div className="input-block">
-                {/* <label htmlFor="pesquisa">Digite abreviação ou continente</label>
-                <input 
-                    id="pesquisa"
-                    type="pesquisa"
-                    placeholder="..."
-                    required={true}
-                    className={''}
-                /> */}
+                
                 <button className="confirm-button" type="submit" onClick={loadByContinent}>
                     Pesquisar País por Continente
                 </button>
@@ -81,6 +86,17 @@ function Home() {
                 </button>
                 <button className="confirm-button" type="submit" onClick={deleteCountry}>
                     Deleta país
+                </button>
+                <label htmlFor="email">Deletar país: </label>
+                    <input
+                        id="ddd"
+                        placeholder="..."
+                        value={email}
+                        onChange={handleEmail}
+                        className="del-input"
+                    />
+                <button className="delete-btn" type="submit" onClick={e => handleSubmit(e)}>
+                    DELETAR
                 </button>
             </div>
            
