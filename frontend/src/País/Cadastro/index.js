@@ -39,7 +39,7 @@ function Register() {
             data.append("abreviacao", abreviacao);
             data.append("continente", continente);
 
-            await api.post('/pais', data);
+            await api.post('/', data);
 
             setNome('');
             setAbreviacao('');

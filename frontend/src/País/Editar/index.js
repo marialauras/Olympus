@@ -38,7 +38,7 @@ function Edit() {
             data.append("abreviacao", abreviacao);
             data.append("continente", continente);
 
-            await api.put('/pais', data);
+            await api.put('/'+abreviacao, data);
 
             setNome('');
             setAbreviacao('');
