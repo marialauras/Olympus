@@ -190,6 +190,16 @@ VALUES ('ARG', 'Vermelho', 'República Argentina', 'Argentina');
 INSERT INTO Pais
 VALUES ('NED', 'Azul', 'Reino dos Países Baixos', 'Países Baixos');
 
+INSERT INTO Continente VALUES ('Europa', 'Azul', 44);
+
+INSERT INTO Continente VALUES ('Ásia', 'Amarelo', 48);
+
+INSERT INTO Continente VALUES ('África', 'Preto', 54);
+
+INSERT INTO Continente VALUES ('Oceania', 'Verde', 14);
+
+INSERT INTO Continente VALUES ('Américas', 'Vermelho', 35);
+
 ALTER TABLE Tocha
 ADD CONSTRAINT fk_tocha_designer FOREIGN KEY (CpfDesigner) REFERENCES Pessoa (CPF);
 
