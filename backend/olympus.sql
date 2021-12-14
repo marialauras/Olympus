@@ -189,3 +189,75 @@ INSERT INTO Pais
 VALUES ('ARG', 'Vermelho', 'República Argentina', 'Argentina');
 INSERT INTO Pais
 VALUES ('NED', 'Azul', 'Reino dos Países Baixos', 'Países Baixos');
+
+ALTER TABLE Tocha
+ADD CONSTRAINT fk_tocha_designer FOREIGN KEY (CpfDesigner) REFERENCES Pessoa (CPF);
+
+ALTER TABLE Tocha
+ADD CONSTRAINT fk_tocha_ano FOREIGN KEY (Ano) REFERENCES Olimpiada (Ano);
+
+ALTER TABLE Mascote
+ADD CONSTRAINT fk_mascote_criador FOREIGN KEY (CpfCriador) REFERENCES Pessoa (CPF);
+
+ALTER TABLE Mascote
+ADD CONSTRAINT fk_mascote_ano FOREIGN KEY (Ano) REFERENCES Olimpiada (Ano);
+
+ALTER TABLE Logo
+ADD CONSTRAINT fk_logo_criador FOREIGN KEY (CpfCriador) REFERENCES Pessoa (CPF);
+
+ALTER TABLE Logo
+ADD CONSTRAINT fk_logo_ano FOREIGN KEY (Ano) REFERENCES Olimpiada (Ano);
+
+ALTER TABLE Pessoa
+ADD CONSTRAINT fk_pessoa_pais FOREIGN KEY (Pais) REFERENCES Pais (Abreviacao);
+
+ALTER TABLE Atleta
+ADD CONSTRAINT fk_atleta_pessoa FOREIGN KEY (CPF) REFERENCES Pessoa (CPF) ON DELETE CASCADE;
+
+ALTER TABLE Atleta
+ADD CONSTRAINT fk_atleta_medalhista FOREIGN KEY (CodMedalhista) REFERENCES Medalhista (CodMedalhista);
+
+ALTER TABLE Equipe
+ADD CONSTRAINT fk_equipe_medalhista FOREIGN KEY (CodMedalhista) REFERENCES Medalhista (CodMedalhista);
+
+ALTER TABLE Podio
+ADD CONSTRAINT fk_podio_medalhista FOREIGN KEY (CodMedalhista) REFERENCES Medalhista (CodMedalhista);
+
+ALTER TABLE Podio
+ADD CONSTRAINT fk_podio_prova FOREIGN KEY (CodProva) REFERENCES Prova (Codigo);
+
+ALTER TABLE Prova
+ADD CONSTRAINT fk_prova_modalidade FOREIGN KEY (CodModalidade) REFERENCES Modalidade (Codigo);
+
+ALTER TABLE Pais
+ADD CONSTRAINT fk_pais_continente FOREIGN KEY (Continente) REFERENCES Continente (Cor);
+
+ALTER TABLE Embaixadores
+ADD CONSTRAINT fk_embaixador_pessoa FOREIGN KEY (CpfEmbaixador) REFERENCES Pessoa (CPF);
+
+ALTER TABLE Embaixadores
+ADD CONSTRAINT fk_embaixador_tocha FOREIGN KEY (CodTocha) REFERENCES Tocha (Codigo);
+
+ALTER TABLE ProvasAtletas
+ADD CONSTRAINT fk_prova_codigo FOREIGN KEY (CodProva) REFERENCES Prova (Codigo);
+
+ALTER TABLE ProvasAtletas
+ADD CONSTRAINT fk_prova_cpf FOREIGN KEY (CpfAtleta) REFERENCES Atleta (CPF);
+
+ALTER TABLE EquipesAtletas
+ADD CONSTRAINT fk_equipe_abrev FOREIGN KEY (AbrevEquipe) REFERENCES Equipe (Abreviacao);
+
+ALTER TABLE EquipesAtletas
+ADD CONSTRAINT fk_equipe_atleta FOREIGN KEY (CpfAtleta) REFERENCES Atleta (CPF);
+
+ALTER TABLE PodioMedalhistas
+ADD CONSTRAINT fk_podio_medalhista FOREIGN KEY (CodMedalhista) REFERENCES Medalhista (CodMedalhista);
+
+ALTER TABLE PodioMedalhistas
+ADD CONSTRAINT fk_podio_prova FOREIGN KEY (CodProva) REFERENCES Prova (Codigo);
+
+ALTER TABLE ProvasEquipes
+ADD CONSTRAINT fk_prova_cod FOREIGN KEY (CodProva) REFERENCES Prova (Codigo);
+
+ALTER TABLE ProvasEquipes
+ADD CONSTRAINT fk_prova_abrev FOREIGN KEY (AbrevEquipe) REFERENCES Equipe(Abreviacao);
