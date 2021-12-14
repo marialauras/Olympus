@@ -30,6 +30,19 @@ function Edit() {
         setNomeOficial(e.target.value);
     }
 
+    async function carregaPais() {
+        api.get(`/${abreviacao}`)
+        .then(response => {
+            setNome(response.data[0].nome);
+            setNomeOficial(response.data[0].nomeOficial);
+        })
+        .catch(err => alert('Erro ao listar pais. Tente novamente.'))
+    }
+
+    useEffect(() => {
+        carregaPais();
+    }, [])
+
     async function handleSubmit(e) {
         try {
             const data = new FormData();
@@ -38,7 +51,7 @@ function Edit() {
             data.append("abreviacao", abreviacao);
             data.append("continente", continente);
 
-            await api.put('/'+abreviacao, data);
+            await api.put(`/${abreviacao}`, data);
 
             setNome('');
             setAbreviacao('');
