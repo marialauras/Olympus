@@ -31,7 +31,7 @@ function Register() {
         setNomeOficial(e.target.value);
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         try {
             const data = new FormData();
             data.append("nome", nome);

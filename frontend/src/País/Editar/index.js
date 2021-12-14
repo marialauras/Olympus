@@ -30,7 +30,7 @@ function Edit() {
         setNomeOficial(e.target.value);
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         try {
             const data = new FormData();
             data.append("nome", nome);
@@ -43,7 +43,7 @@ function Edit() {
             setNome('');
             setAbreviacao('');
             setNomeOficial('');
-            alert('Pais criado com sucesso!');
+            alert('Pais atualizado com sucesso!');
         } catch (error) {
             console.log(error);
         }
