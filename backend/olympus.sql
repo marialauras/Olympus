@@ -32,17 +32,17 @@ CREATE TABLE Pessoa (
     AnoNasc     	NUMERIC(4)     NULL,
     DiaNasc     	NUMERIC(2)     NULL,
     MesNasc     	NUMERIC(2)     NULL,
-    CPF    		VARCHAR(14)    NOT NULL,
-    Pais             	VARCHAR(3)     NOT NULL,
-    PrimeiroNome    	VARCHAR(100)   NOT NULL,
+    CPF    		    VARCHAR(14)    NOT NULL,
+    Pais            VARCHAR(3)     NOT NULL,
+    PrimeiroNome    VARCHAR(100)   NOT NULL,
     Sobrenome    	VARCHAR(200)   NULL,
-    Sexo                VARCHAR(1)     NOT NULL,
+    Sexo            VARCHAR(1)     NOT NULL,
     CONSTRAINT pk_pessoa PRIMARY KEY (CPF),
     CONSTRAINT ck_sexo_pessoa CHECK (Sexo='M' or Sexo='F')
 );
 
 CREATE TABLE Atleta (
-    CPF    		   VARCHAR(14)    NOT NULL,
+    CPF    		           VARCHAR(14)    NOT NULL,
     CodMedalhista     	   NUMERIC(6)     NULL,
     QuantidadeMedalhas     NUMERIC(4)     NULL,
     CONSTRAINT pk_atleta   PRIMARY KEY (CPF)
@@ -69,20 +69,20 @@ CREATE TABLE Medalhista (
 
 CREATE TABLE Modalidade (
     Nome             	   VARCHAR(100)    NULL,
-    Codigo       	   NUMERIC(6)      NOT NULL,
+    Codigo       	       NUMERIC(6)      NOT NULL,
     Sexo                   VARCHAR(1)      NOT NULL,
     CONSTRAINT pk_modalidade   PRIMARY KEY (Codigo),
     CONSTRAINT ck_sexo_modalidade CHECK (Sexo='M' or Sexo='F')
 );
 
 CREATE TABLE Prova (
-    Código     	        NUMERIC(6)     NOT NULL,
+    Codigo     	        NUMERIC(6)     NOT NULL,
     CodModalidade       NUMERIC(6)     NOT NULL,
-    Descrição     	VARCHAR(600)   NULL,
-    DataDia    		NUMERIC(2)     NOT NULL,
+    Descrição     	    VARCHAR(600)   NULL,
+    DataDia    		    NUMERIC(2)     NOT NULL,
     DataMes             NUMERIC(2)     NOT NULL,
-    DataMinuto    	NUMERIC(2)     NOT NULL,
-    DataHoras    	NUMERIC(2)     NOT NULL,
+    DataMinuto    	    NUMERIC(2)     NOT NULL,
+    DataHoras    	    NUMERIC(2)     NOT NULL,
     Fase       	        VARCHAR(30)    NULL,
     CONSTRAINT pk_prova    PRIMARY KEY (Codigo)
    
@@ -90,7 +90,7 @@ CREATE TABLE Prova (
 
 CREATE TABLE Pais (
     Abreviacao     	VARCHAR(3)       NOT NULL,
-    Continente          VARCHAR(30)      NOT NULL,
+    Continente      VARCHAR(30)      NOT NULL,
     NomeOficial    	VARCHAR(200)     NULL,
     NomeComum    	VARCHAR(100)     NULL,
     CONSTRAINT pk_pais    PRIMARY KEY (Abreviacao)
@@ -101,7 +101,7 @@ CREATE TABLE Continente (
     Cor                 VARCHAR(30)    NOT NULL,
     QuantidadePaises    NUMERIC(2)     NULL,
     CONSTRAINT pk_continente PRIMARY KEY (Cor),
-    CONSTRAINT ck_sexo_dep CHECK (Cor= "Azul" or Cor= "Vermelho" or Cor= "Verde" or Cor= "Amarelo" or Cor= "Preto")
+    CONSTRAINT ck_cor_continente CHECK (Cor= 'Azul' or Cor= 'Vermelho' or Cor= 'Verde' or Cor= 'Amarelo' or Cor= 'Preto')
 );
 
 
@@ -114,21 +114,21 @@ CREATE TABLE Embaixadores (
 
 CREATE TABLE ProvasAtletas (
     CodProva    	     NUMERIC(4)     NOT NULL,
-    CpfAtleta                VARCHAR(14)    NOT NULL,
-    CONSTRAINT pk_provas_atletas    PRIMARY KEY (CodProva,CpfAtleta)
+    CpfAtleta            VARCHAR(14)    NOT NULL,
+    CONSTRAINT pk_provas_atletas    PRIMARY KEY (CodProva, CpfAtleta)
 );
 
 CREATE TABLE EquipesAtletas (
     AbrevEquipe    	     VARCHAR(3)     NOT NULL,
-    CpfAtleta                VARCHAR(14)    NOT NULL,
-    CONSTRAINT pk_equipe_atletas    PRIMARY KEY (AbrevEquipe,CpfAtleta)
+    CpfAtleta            VARCHAR(14)    NOT NULL,
+    CONSTRAINT pk_equipe_atletas    PRIMARY KEY (AbrevEquipe, CpfAtleta)
 );
 
 CREATE TABLE PodioMedalhistas (
     Posicao    	     NUMERIC(4)     NOT NULL,
     CodMedalhista    NUMERIC(6,1)   NOT NULL,
     CodProva	     NUMERIC(4)     NOT NULL,
-    CONSTRAINT pk_podio_medalhistas    PRIMARY KEY (CodMedalhista ,CpfAtleta)
+    CONSTRAINT pk_podio_medalhistas    PRIMARY KEY (CodMedalhista, CodProva)
 );
 
 CREATE TABLE ProvasEquipes (
@@ -141,6 +141,51 @@ CREATE TABLE OlimpiadaPais(
     AnoOlimpiada   	     NUMERIC(4)     NOT NULL,
     AbreviacaoPais	     VARCHAR(3)     NOT NULL,
     NumeroDeAtletas	     NUMERIC(4)     NULL,
-    NumeroDeMedalhas	     NUMERIC(4)     NULL,
+    NumeroDeMedalhas	 NUMERIC(4)     NULL,
     CONSTRAINT pk_pais_olimpiada    PRIMARY KEY (AnoOlimpiada,AbreviacaoPais)
 );
+
+/* azul: Europa, 
+amarelo: Ásia, 
+preto: África, 
+verde: Oceania e 
+vermelho: as Américas. */
+
+INSERT INTO Pais
+VALUES ('EUA', 'Vermelho', 'Estados Unidos da América', 'Estados Unidos');
+INSERT INTO Pais
+VALUES ('RUS', 'Azul', 'Federação Russa', 'Rússia');
+INSERT INTO Pais
+VALUES ('ALE', 'Azul', 'República Federal da Alemanha', 'Alemanha');
+INSERT INTO Pais
+VALUES ('GBR', 'Azul', 'Reino Unido da Grã-Bretanha', 'Grã-Bretanha');
+INSERT INTO Pais
+VALUES ('CHI', 'Amarelo', 'República Popular da China', 'China');
+INSERT INTO Pais
+VALUES ('FRA', 'Azul', 'República Francesa', 'França');
+INSERT INTO Pais
+VALUES ('ITA', 'Azul', 'República Italiana', 'Itália');
+INSERT INTO Pais
+VALUES ('SWE', 'Azul', 'Reino da Suécia', 'Suécia');
+INSERT INTO Pais
+VALUES ('NOR', 'Azul', 'Reino da Noruega', 'Noruega');
+INSERT INTO Pais
+VALUES ('JPN', 'Amarelo', 'Japão', 'Japão');
+INSERT INTO Pais
+VALUES ('AUS', 'Verde', 'Comunidade da Austrália', 'Austrália');
+INSERT INTO Pais
+VALUES ('CAN', 'Vermelho', 'Canadá', 'Canadá');
+INSERT INTO Pais
+VALUES ('KEN', 'Preto', 'República do Quênia', 'Quênia');
+INSERT INTO Pais
+VALUES ('GRE', 'Azul', 'República Helénica', 'Grécia');
+INSERT INTO Pais
+VALUES ('RSA', 'Preto', 'República da África do Sul', 'África do Sul');
+INSERT INTO Pais
+VALUES ('NZL', 'Verde', 'Nova Zelândia', 'Nova Zelândia');
+INSERT INTO Pais
+VALUES ('KOR', 'Amarelo', 'República da Coreia', 'Coréia do Sul');
+INSERT INTO Pais
+VALUES ('ARG', 'Vermelho', 'República Argentina', 'Argentina');
+INSERT INTO Pais
+VALUES ('NED', 'Azul', 'Reino dos Países Baixos', 'Países Baixos');
