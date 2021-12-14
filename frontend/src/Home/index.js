@@ -59,14 +59,6 @@ function Home() {
         <main id="home-page">
             <Navbar/>
             <div className="input-block">
-                {/* <label htmlFor="pesquisa">Digite abreviação ou continente</label>
-                <input 
-                    id="pesquisa"
-                    type="pesquisa"
-                    placeholder="..."
-                    required={true}
-                    className={''}
-                /> */}
                 <button className="confirm-button" type="submit" onClick={loadByContinent}>
                     Pesquisar País por Continente
                 </button>

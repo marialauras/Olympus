@@ -15,36 +15,6 @@
     padding: 100px;
     width: 80%;
 }
-  
-#home-page .input-block label {
-    display: flex;
-    color: #8FA7B3;
-    margin-bottom: 8px;
-    line-height: 24px;
-}
-  
-#home-page .input-block label span {
-    font-size: 14px;
-    color: #8FA7B3;
-    margin-left: 24px;
-    line-height: 24px;
-}
-
-#home-page .input-block input {
-    width: 100%;
-    /* background: #F5F8FA; */
-    background: var(--color-tertiary);
-    /* border: 1px solid #D3E2E5; */
-    border: 2px solid var(--color-primary);
-    border-radius: 20px;
-    outline: none;
-    color: var(--color-text-secondary);
-
-    font-size: var(--font-text);
-    
-    height: 64px;
-    padding: 0 16px;
-}
 
 #home-page button.confirm-button {
     margin-top: 64px;
@@ -76,7 +46,7 @@
 }
 
 #home-page  section h1{
-    text-align: right;
+    text-align: center;
     font-weight: normal;
     color: #004453;
     margin-bottom: 30px;
