@@ -1,5 +1,6 @@
 import React, { useState, useHistory } from 'react';
 import Select from 'react-select'
+import api from '../../../services/api';
 import './style.css';
 
 function Edit() {

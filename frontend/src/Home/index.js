@@ -1,6 +1,7 @@
 import React, { useState, useHistory } from 'react';
 import Navbar from '../components/Navbar';
 import './style.css';
+import api from '../../services/api';
 
 import Judo from '../assets/images/judo.png'
 
