@@ -1,0 +1,22 @@
+const { Pool } = require('pg');
+
+const db_username = "postgres";
+const db_password = "SENHA";
+const host = "localhost";
+const port = 5432;
+const db_name = "Olympus";
+
+const DATABASE_URL = `postgres://${db_username}:${db_password}@${host}:${port}/${db_name}`;
+
+// ==> Conexão com a Base de Dados:
+const pool = new Pool({
+  connectionString: DATABASE_URL
+});
+
+pool.on('connect', () => {
+  console.log('Base de Dados conectado com sucesso!');
+});
+
+module.exports = {
+  query: (text, params) => pool.query(text, params),
+};
