@@ -9,8 +9,11 @@ module.exports = app => {
     // Le todos os países
     router.get("/", pais.findAll);
   
-    // Le apenas um únco país
+    // Le apenas um único país pela abreviação dele
     router.get("/:abreviacao", pais.findOne);
+
+    // Le apenas um único país pelo continente dele
+    router.get("/:continente", pais.findByContinent);
   
     // Atualiza um país
     router.put("/:abreviacao", pais.update);

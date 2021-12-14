@@ -1,7 +1,7 @@
 import React, { useState, useHistory } from 'react';
 import Select from 'react-select'
+import Pais from '../../../models/pais.model';
 import './style.css';
-
 
 function Register() {
     const [ nome, setNome ] = useState('');
@@ -31,7 +31,13 @@ function Register() {
         setNomeOficial(e.target.value);
     }
 
-    function handleSubmit(e) {}
+    function handleSubmit(e) {
+        Pais.create(e).then((result) => {
+            
+        }).catch((err) => {
+            
+        });
+    }
 
     return (
         <div id="register-page">

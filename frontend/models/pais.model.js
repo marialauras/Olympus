@@ -40,6 +40,25 @@ Pais.findOne = (abreviacao, result) => {
   });
 };
 
+Pais.findByContinent = (continente, result) => {
+  sql.query(`SELECT * FROM Pais WHERE continente = ${continente}`, (err, res) => {
+    if (err) {
+      console.log("Erro: ", err);
+      result(err, null);
+      return;
+    }
+
+    if (res.length) {
+      console.log("Pais encontrado: ", res[0]);
+      result(null, res[0]);
+      return;
+    }
+
+    // País não encontrado
+    result({ kind: "not_found" }, null);
+  });
+};
+
 Pais.getAll = (abreviacao, result) => {
   let query = "SELECT * FROM Pais";
 
