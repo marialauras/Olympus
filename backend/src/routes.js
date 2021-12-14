@@ -10,6 +10,7 @@ routes.get('/', (req, res) => {
 routes.get('/pais', controller.index);
 routes.get('/join', controller.join);
 routes.get('/like', controller.like);
+routes.get('/add', controller.add);
 routes.get('/delete', controller.delete);
 
 module.exports = routes;

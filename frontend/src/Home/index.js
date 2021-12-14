@@ -1,7 +1,7 @@
-import React, { useState, useHistory } from 'react';
+import React, { useState, useEffect, useHistory } from 'react';
 import Navbar from '../components/Navbar';
 import './style.css';
-import api from '../../services/api';
+import api from '../services/api';
 
 //import Judo from '../assets/images/judo.png'
 
@@ -11,6 +11,7 @@ function Home() {
     function loadAllCountries(){
         api.get('/pais')
         .then(response => {
+            console.log(response.data);
             setPais(response.data);
         })
         .catch(err => console.log(err))
@@ -19,6 +20,7 @@ function Home() {
     function loadByContinent(){
         api.get('/join')
         .then(response => {
+            console.log(response.data);
             setPais(response.data);
         })
         .catch(err => console.log(err))
@@ -27,7 +29,16 @@ function Home() {
     function loadRepublics(){
         api.get('/like')
         .then(response => {
+            console.log(response.data);
             setPais(response.data);
+        })
+        .catch(err => console.log(err))
+    }
+
+    function addCountry(){
+        api.get('/add')
+        .then(response => {
+            // Outra coisa
         })
         .catch(err => console.log(err))
     }
@@ -42,20 +53,20 @@ function Home() {
 
     useEffect(() => {
         loadAllCountries();
-    }, []);
+    }, [pais]);
 
     return (
         <main id="home-page">
             <Navbar/>
             <div className="input-block">
-                <label htmlFor="pesquisa">Digite abreviação ou continente</label>
+                {/* <label htmlFor="pesquisa">Digite abreviação ou continente</label>
                 <input 
                     id="pesquisa"
                     type="pesquisa"
                     placeholder="..."
                     required={true}
                     className={''}
-                />
+                /> */}
                 <button className="confirm-button" type="submit" onClick={loadByContinent}>
                     Pesquisar País por Continente
                 </button>
@@ -65,19 +76,22 @@ function Home() {
                 <button className="confirm-button" type="submit" onClick={loadAllCountries}>
                     Mostrar todos os países
                 </button>
+                <button className="confirm-button" type="submit" onClick={addCountry}>
+                    Adiciona país
+                </button>
                 <button className="confirm-button" type="submit" onClick={deleteCountry}>
                     Deleta país
                 </button>
             </div>
            
            <section>
-               <h1>Quadro de Medalhas</h1>
+               <h1>Países</h1>
                {pais.map(p => (
                     <div class="big-box">
                         <div class="medium-box">
                             <div class="small-box">
                                 <div class="text-box">
-                                    <p>{p.nome}</p>
+                                    <p>{p.nome ? p.nome : ""}{p.nome ? "  -  " : ""}{p.nomecomum ? p.nomecomum : ""}</p>
                                 </div>
                             </div>
                         </div>
