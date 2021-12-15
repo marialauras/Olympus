@@ -87,10 +87,12 @@
 
 #home-page  section h1{
     text-align: start;
+    text-align: center;
     font-weight: normal;
     color: #004453;
     margin-bottom: 30px;
     margin-top: 30px;
+
 }
 
 #home-page  section .big-box{
